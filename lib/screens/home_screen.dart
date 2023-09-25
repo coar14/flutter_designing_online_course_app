@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_designing_online_course_app/widgets/widgets.dart';
+import 'package:flutter_designing_online_course_app/screens/courseDetails.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_designing_online_course_app/widgets/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -31,14 +32,24 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontSize: 36,
                   ),
                 ),
-                Text(
-                  'Master Class',
-                  style: GoogleFonts.roboto(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                    fontSize: 36,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (contex) => const CourseDetail(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Master Class',
+                    style: GoogleFonts.roboto(
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                      fontSize: 36,
+                    ),
                   ),
-                )
+                ),
               ],
             ),
             const SizedBox(
@@ -50,22 +61,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, index) {
-                    if (index == 0) {
-                      return const HorizontalList(
-                          startColor: 0xFF9288E4,
-                          endColor: 0xFF534EA7,
-                          courseHeadLine: 'Recommeded',
-                          courseTitle: 'UI/UX DESINGER \n BEGINNER',
-                          courseImage: 'assets/images/img_saly10.png');
-                    } else if (index == 1) {
-                      return const HorizontalList(
-                          startColor: 0xFFF4C465,
-                          endColor: 0xFFC63956,
-                          courseHeadLine: 'NEW CLASS',
-                          courseTitle: 'GRAPHIC\nDESIGN',
-                          courseImage: 'assets/images/img_saly36_detail.png');
-                    }
-                    return null;
+                    return const HorizontalList(
+                        startColor: 0xFF9288E4,
+                        endColor: 0xFF534EA7,
+                        courseHeadLine: 'Recommended',
+                        courseTitle: 'UI/UX DESIGNER\nBEGINNER',
+                        courseImage: 'assets/images/img_saly10.png');
                   }),
             ),
             const SizedBox(
@@ -90,28 +91,19 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: const Color(0xFF9C9A9A),
                     fontSize: 14,
                   ),
-                )
+                ),
               ],
             ),
             ListView.builder(
                 itemCount: 5,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
-                  if (index == 0) {
-                    return const VerticalList(
-                        courseImage: 'assets/images/img_saly24.png',
-                        courseTitle: 'Flutter Developer',
-                        courseDuration: '8 Hours',
-                        courseRating: 5.0);
-                  } else if (index == 1) {
-                    return const VerticalList(
-                        courseImage: 'assets/images/Saly-13.png',
-                        courseTitle: 'Full Stack Javascript',
-                        courseDuration: '6 Hours',
-                        courseRating: 4.0);
-                  }
-                  return null;
-                }),
+                  return const VerticalList(
+                      courseImage: 'assets/images/img_saly24.png',
+                      courseTitle: 'Flutter Developer',
+                      courseDuration: '8 Hourse',
+                      courseRating: 3.0);
+                })
           ],
         ),
       ),
