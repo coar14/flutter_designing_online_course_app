@@ -65,6 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           courseTitle: 'GRAPHIC\nDESIGN',
                           courseImage: 'assets/images/img_saly36_detail.png');
                     }
+                    return null;
                   }),
             ),
             const SizedBox(
@@ -96,8 +97,21 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemCount: 5,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
-                  return Container();
-                })
+                  if (index == 0) {
+                    return const VerticalList(
+                        courseImage: 'assets/images/img_saly24.png',
+                        courseTitle: 'Flutter Developer',
+                        courseDuration: '8 Hours',
+                        courseRating: 5.0);
+                  } else if (index == 1) {
+                    return const VerticalList(
+                        courseImage: 'assets/images/Saly-13.png',
+                        courseTitle: 'Full Stack Javascript',
+                        courseDuration: '6 Hours',
+                        courseRating: 4.0);
+                  }
+                  return null;
+                }),
           ],
         ),
       ),
