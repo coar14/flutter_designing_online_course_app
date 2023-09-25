@@ -31,7 +31,9 @@ class HorizontalList extends StatelessWidget {
                 colors: <Color>[
                   Color(startColor),
                   Color(endColor),
-                ])),
+                ]
+                )
+                ),
         child: Stack(children: [
           Positioned(
             top: 15,
